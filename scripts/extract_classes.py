@@ -11,7 +11,7 @@ if __name__ == "__main__":
     path = "/content/QADI/train_set.csv"
     df = pd.read_csv(path, delimiter='\t')
     class_name = "classes_12.txt"
-    labels_1 = sorted(df["#3_country_label"].unique().tolist())
+    labels_1 = sorted(df["country_label"].unique().tolist())
 #     labels_2 = sorted(df["#4_province_label"].unique().tolist())
 
 #     print(f"n1={len(labels_1)} | n2={len(labels_2)}")
