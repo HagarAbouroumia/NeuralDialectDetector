@@ -150,7 +150,9 @@ class Trainer():
                     break
 
                 if self.configs["checkpoint_on_improvement"] and curr_dev_f1 > best_dev_f1:
-                    logger.info(f"Dev Loss Reduction from {best_dev_loss} to {curr_dev_loss}")
+#                     logger.info(f"Dev Loss Reduction from {best_dev_loss} to {curr_dev_loss}")
+                    logger.info(f"best_dev_f1 at step {global_step} is {curr_dev_f1}")
+
                     best_model_path = save_model(model, tokenizer, self.configs["checkpointing_path"], self.configs, step_no=global_step, current_dev_score=curr_dev_f1)
                     best_dev_f1 = curr_dev_f1
                     best_dev_loss = curr_dev_loss
