@@ -73,7 +73,7 @@ class Trainer():
         self.configs["mask_id"] = tokenizer.convert_tokens_to_ids(tokenizer.mask_token)
         model = getattr(model_classes, self.configs["model_class"]).from_pretrained(self.model_name_path,
                                                             config=model_config,
-                                                            args=self.configs)
+                                                            args=self.configs, ignore_mismatched_sizes=True)
         model.to(self.configs["device"])
         total_steps = len(train_loader) * self.configs["num_epochs"]
 
