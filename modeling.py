@@ -96,7 +96,7 @@ class Trainer():
             num_warmup=self.configs["warmup_steps"] // mini_epoch_size,
             mini_epoch_size=mini_epoch_size,
             min_factor=self.configs.get('inv-sqrt-lr-min-factor', 0.1),
-            max_factor=self.configs.get('inv-sqrt-lr-max-factor', 2),
+            max_factor=self.configs.get('inv-sqrt-lr-max-factor', 1),
             temperature=self.configs.get('inv-sqrt-lr-temperature', 1)
         )
         # scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=self.configs["warmup_steps"], num_training_steps=total_steps)
