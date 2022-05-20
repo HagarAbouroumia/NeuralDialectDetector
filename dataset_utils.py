@@ -109,10 +109,10 @@ def prepare_random_sampler(classes_list):
     return sampler
 
 def parse_and_generate_loader(path_to_data_folder, tokenizer, params, classes_list, split_set="train", locale="ar", random_sampler=True, masking_percentage=0.2, class_to_filter=None, regional_mapping=None, filter_w_indexes=None, pred_class=-1, max_seq_len=128, balance_data_max_examples=None, is_province=False, is_MSA=False, handle_imbalance_sampler=False):
-    index_path = os.path.join(filter_w_indexes, f"predictions_{split_set}.tsv") if filter_w_indexes is not None else None
+    index_path = os.path.join(filter_w_indexes, f"predictions_{split_set}.csv") if filter_w_indexes is not None else None
     
     arabic_type = "MSA" if is_MSA else "DA"
-    data_examples = parse_data(os.path.join(path_to_data_folder, f"{arabic_type}_{split_set}_labeled.tsv"), regional_mapping_content=regional_mapping, class_to_filter=class_to_filter, filter_w_indexes=index_path, pred_class=pred_class)
+    data_examples = parse_data(os.path.join(path_to_data_folder, f"{arabic_type}_{split_set}_labeled.csv"), regional_mapping_content=regional_mapping, class_to_filter=class_to_filter, filter_w_indexes=index_path, pred_class=pred_class)
     
     if balance_data_max_examples is not None:
         data_examples = balance_data(data_examples, balance_data_max_examples)
