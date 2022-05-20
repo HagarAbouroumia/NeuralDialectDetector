@@ -281,8 +281,8 @@ if __name__ == "__main__":
     config_file_path = "/content/checkpoints_MARBERT_DA_Country_Adapters_VAtt/config_model.yaml"  # sys.argv[1]
 
     trainer_class = Trainer(config_file_path=config_file_path)
-    # trainer_class.train()
+    final_dev_accuracy, model_path_to_return = trainer_class.train()
     # trainer_class.train_with_multiple_seeds(3)
     # trainer_class.train_and_evaluate_with_multiple_seeds(1, seeds_from_config=True, eval_on_train=False)
-    output = trainer_class.evaluate_from_path(evaluate_on_train=False)
-    print(output)
+    #output = trainer_class.evaluate_from_path(evaluate_on_train=False)
+    print(final_dev_accuracy, model_path_to_return)
